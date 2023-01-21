@@ -22,10 +22,12 @@ module.exports = {
     ],
     'import/no-default-export': 'error',
     indent: 'off', // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^action' }],
     'no-nested-ternary': 'off',
     'no-unneeded-ternary': 'off',
     'react/jsx-fragments': ['off'],
+    'no-irregular-whitespace': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-console': 'off',
   },
   ignorePatterns: ['coverage', 'cypress.config.ts'],
 };

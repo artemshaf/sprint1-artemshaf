@@ -8,11 +8,13 @@ import { BookList, Button, Icon, Input, Typography, WithMenu } from '../../compo
 import { IHomePageInterface } from './home-page-interface';
 
 import styles from './home-page.module.scss';
+import { useMatchMedia } from '../../hooks';
 
 type VariantDisplay = 'list' | 'tile';
 
 export const HomePage = ({ className, ...props }: IHomePageInterface) => {
-  const [variantDisplay, setVariantDisplay] = useState<VariantDisplay>('tile');
+  const [variantDisplay, setVariantDisplay] = useState<VariantDisplay>('list');
+  const { isM } = useMatchMedia();
 
   useDocumentTitle('Домашная страница');
 
@@ -22,10 +24,14 @@ export const HomePage = ({ className, ...props }: IHomePageInterface) => {
         <div className={styles.content__top}>
           <div className={styles.content__top__input__wrapper}>
             <Input className={styles.content__top__input} search={true} placeholder='Поиск книги или автора…' />
-            <Button size='s' color='secondary' className={styles.content__top__sortBtn}>
-              <Icon icon='SortAsc' />
-              <Typography variant='span'>По рейтингу</Typography>
-            </Button>
+            {isM ? (
+              <Button icon='SortAsc' color='secondary' className={styles.content__top__sort} />
+            ) : (
+              <Button size='s' color='secondary' className={styles.content__top__sort}>
+                <Icon icon='SortAsc' />
+                {/* <Typography variant='span'>По рейтингу</Typography> */}
+              </Button>
+            )}
           </div>
           <div className={styles.content__top__btns}>
             <Button

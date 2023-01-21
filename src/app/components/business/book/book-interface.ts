@@ -1,3 +1,3 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface IBookInterface extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export type IBookInterface = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

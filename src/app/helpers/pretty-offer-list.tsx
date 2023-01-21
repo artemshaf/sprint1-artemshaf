@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+
 import { INestedList } from '../data';
 
 export const getPrettyOfferList = (list: INestedList): ReactNode => {

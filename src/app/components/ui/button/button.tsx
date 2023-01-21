@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import classNames from 'classnames';
+
 import { Icon } from '../icon';
 
 import { IButtonInterface } from './button-interface';
@@ -18,14 +19,22 @@ export const Button = ({
 }: IButtonInterface) => {
   if (!children && icon) {
     return (
-      <button className={classNames(styles[color], styles[size], styles.icon, className)} type={type} {...props}>
+      <button
+        className={classNames(className, styles[color], styles[size], styles.icon, className)}
+        type={type}
+        {...props}
+      >
         <Icon icon={icon} />
       </button>
     );
   }
 
   return (
-    <button className={classNames(styles[color], styles[size], styles.button, className)} type={type} {...props}>
+    <button
+      className={classNames(className, styles[color], styles[size], styles.button, className)}
+      type={type}
+      {...props}
+    >
       {children}
       {icon && <Icon icon={icon} />}
     </button>

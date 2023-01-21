@@ -1,6 +1,9 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { memo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { BOOK_PAGE } from '../../../../utils';
@@ -13,14 +16,19 @@ import { IBookItemInterface } from './book-item-interface';
 import styles from './book-item.module.scss';
 
 const Item = ({ variantDisplay = 'list', item, className, ...props }: IBookItemInterface) => {
+  const navigate = useNavigate();
+
   if (variantDisplay === 'tile') {
     return (
-      <li className={classNames(styles.item, styles[`item_${variantDisplay}`], className)} {...props}>
-        <div>
-          <Link to={`${BOOK_PAGE}`}>
-            <img className={classNames(styles.img)} src={DefaultImg} alt='Book' />
-          </Link>
-        </div>
+      <li
+        data-test-id='card'
+        onClick={() => navigate(BOOK_PAGE)}
+        className={classNames(styles.item, styles[`item_${variantDisplay}`], className)}
+        {...props}
+      >
+        <Link to={`${BOOK_PAGE}`}>
+          <img className={classNames(styles.img)} src={DefaultImg} alt='Book' />
+        </Link>
         <div className={classNames(styles[`item_${variantDisplay}__info__wrapper`])}>
           <div className={classNames(styles[`item_${variantDisplay}__info__descr`])}>
             <Typography className={classNames(styles.name)}>
@@ -29,13 +37,10 @@ const Item = ({ variantDisplay = 'list', item, className, ...props }: IBookItemI
             <Typography className={classNames(styles.author)}>Адитья Бхаргава, 2019</Typography>
           </div>
           <div className={classNames(styles[`item_${variantDisplay}__btn__wrapper`])}>
-            {item.rating ? (
-              <Rating rate={3} className={classNames(styles.rating)} />
-            ) : (
-              <Typography className={classNames(styles.rating)} variant='p'>
-                ещё нет оценок
-              </Typography>
-            )}
+            <Rating isChanged={false} rate={3} className={classNames(styles.rating)} />
+            {/* <Typography className={classNames(styles.rating)} variant='p'>
+              ещё нет оценок 
+            </Typography> */}
             <Button size='s' className={classNames(styles.btn)}>
               Забронировать
             </Button>
@@ -46,28 +51,30 @@ const Item = ({ variantDisplay = 'list', item, className, ...props }: IBookItemI
   }
 
   return (
-    <li className={classNames(styles.item, styles[`item_${variantDisplay}`], className)} {...props}>
-      <div>
+    <li
+      data-test-id='card'
+      onClick={() => navigate(BOOK_PAGE)}
+      className={classNames(styles.item, styles[`item_${variantDisplay}`], className)}
+      {...props}
+    >
+      <Link to={`${BOOK_PAGE}`}>
         <Link to={`${BOOK_PAGE}`}>
           <img className={classNames(styles.img)} src={DefaultImg} alt='Book' />
         </Link>
-      </div>
-      <div>
-        {item.rating ? (
-          <Rating className={classNames(styles.rating)} />
-        ) : (
-          <Typography className={classNames(styles.rating)} variant='p'>
+        <div>
+          <Rating isChanged={false} className={classNames(styles.rating)} />
+          {/* <Typography className={classNames(styles.rating)} variant='p'>
             ещё нет оценок
+          </Typography> */}
+          <Typography className={classNames(styles.name)}>
+            Грокаем алгоритмы. Иллюстрированное пособие для програ...
           </Typography>
-        )}
-        <Typography className={classNames(styles.name)}>
-          Грокаем алгоритмы. Иллюстрированное пособие для програ...
-        </Typography>
-        <Typography className={classNames(styles.author)}>Адитья Бхаргава, 2019</Typography>
-        <Button size='s' className={classNames(styles.btn)}>
-          Забронировать
-        </Button>
-      </div>
+          <Typography className={classNames(styles.author)}>Адитья Бхаргава, 2019</Typography>
+          <Button size='s' className={classNames(styles.btn)}>
+            Забронировать
+          </Button>
+        </div>
+      </Link>
     </li>
   );
 };

@@ -1,6 +1,4 @@
-// import { AppRouter } from './components/business';
-import { AppRouter } from './components';
-import { withLayout } from './components/layout';
+import { AppRouter, withLayout } from './components';
 
 const App = () => <AppRouter />;
 

@@ -1,5 +1,5 @@
-import { HomePage, LoginPage, RegisterPage, BookPage, OfferPage, RightUsePage } from '../pages';
-import { BOOK_PAGE, HOME_PAGE, LOGIN_PAGE, OFFER_PAGE, REGISTER_PAGE, RIGHT_USE_PAGE } from '../utils';
+import { BookPage, HomePage, LoginPage, OfferPage, RegisterPage, RightUsePage } from '../pages';
+import { BOOK_PAGE, BOOKS_PAGE, HOME_PAGE, LOGIN_PAGE, OFFER_PAGE, REGISTER_PAGE, RIGHT_USE_PAGE } from '../utils';
 
 interface IRoute {
   path: string;
@@ -9,6 +9,10 @@ interface IRoute {
 export const publicRoutes: IRoute[] = [
   {
     path: HOME_PAGE,
+    element: <HomePage />,
+  },
+  {
+    path: BOOKS_PAGE,
     element: <HomePage />,
   },
   {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
 const defaultQueries = [
-  '(max-width: 319px)',
-  '(max-width: 399px)',
-  '(max-width: 767px)',
-  '(max-width: 999px)',
-  '(max-width: 1339px)',
+  '(max-width: 321px)',
+  '(max-width: 401px)',
+  '(max-width: 769px)',
+  '(max-width: 1001px)',
+  '(max-width: 1401px)',
 ];
 
 interface IUseMatchMedia {

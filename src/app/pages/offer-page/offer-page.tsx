@@ -1,9 +1,8 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import classNames from 'classnames';
 import { useDocumentTitle } from 'usehooks-ts';
+
 import { NestedList, WithMenu } from '../../components';
 import { offerPageData } from '../../data';
-import { getPrettyOfferList } from '../../helpers/pretty-offer-list';
 
 import { IOfferPageInterface } from './offer-page-interface';
 
@@ -14,7 +13,7 @@ export const OfferPage = ({ className, ...props }: IOfferPageInterface) => {
   console.log(styles);
 
   return (
-    <WithMenu className={styles.offerPage} {...props}>
+    <WithMenu className={classNames(styles.offerPage, className)} {...props}>
       <NestedList list={offerPageData} />
     </WithMenu>
   );

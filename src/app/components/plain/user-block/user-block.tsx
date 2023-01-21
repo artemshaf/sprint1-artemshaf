@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { getCapitalizeText } from '../../../helpers';
 
+import { getCapitalizeText } from '../../../helpers';
 import { Typography, UserAvatar } from '../../ui';
 
 import { IUserBlockInterface } from './user-block-interface';

@@ -1,3 +1,3 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface IDividerInterface extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export type IDividerInterface = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>

@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { HOME_PAGE } from '../../../utils';
+import classNames from 'classnames';
 
+import { HOME_PAGE } from '../../../utils';
 import { Icon, Typography } from '../../ui';
 
 import { ILogoInterface } from './logo-interface';

@@ -2,10 +2,11 @@
 import { memo } from 'react';
 import classNames from 'classnames';
 
+import { getKey } from '../../../helpers';
+
 import { IBreadcrumbsInterface } from './breadcrumbs-interface';
 
 import styles from './breadcrumbs.module.scss';
-import { getKey } from '../../../helpers';
 
 export const Breadcrumbs = memo(({ last, className, ...props }: IBreadcrumbsInterface) => {
   const pathnames = ['Бизнес книги', 'Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих'];

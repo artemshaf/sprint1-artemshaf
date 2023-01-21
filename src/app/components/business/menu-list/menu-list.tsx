@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+import { Link, useLocation, useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import { Link, useLocation } from 'react-router-dom';
 
 import { menuItems } from '../../../data';
 import { HOME_PAGE, OFFER_PAGE, RIGHT_USE_PAGE } from '../../../utils';
@@ -16,13 +15,11 @@ const mockItems = menuItems;
 export const MenuList = ({ items = mockItems, className, ...props }: IMenuListInterface) => {
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   return (
     <div className={className}>
       <div
         className={classNames(styles.list__title__wrapper, {
-          [styles.active]: pathname === HOME_PAGE,
+          [styles.active]: pathname.includes(HOME_PAGE),
         })}
       >
         <Link to={HOME_PAGE}>
@@ -30,18 +27,20 @@ export const MenuList = ({ items = mockItems, className, ...props }: IMenuListIn
             Витрина книг
           </Typography>
         </Link>
-        {pathname === HOME_PAGE ? <Icon icon='Down' /> : <Icon icon='Up' />}
+        {pathname.includes(HOME_PAGE) ? <Icon icon='Down' /> : <Icon icon='Up' />}
       </div>
       <ul className={classNames(styles.list, className)} {...props}>
         {items &&
-          items.map((item, index) => (
-            <li
-              className={classNames(styles.list__item, {
-                // [styles.active_item]: index === 0,
-              })}
-            >
-              {item}{' '}
-            </li>
+          items.map((item) => (
+            <Link to={HOME_PAGE + item}>
+              <li
+                className={classNames(styles.list__item, {
+                  [styles.active_item]: pathname[pathname.length - 1].split(' ').join('') === item.split(' ').join(''),
+                })}
+              >
+                {item}
+              </li>
+            </Link>
           ))}
       </ul>
       <Link to={RIGHT_USE_PAGE}>

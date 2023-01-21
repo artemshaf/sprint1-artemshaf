@@ -14,22 +14,15 @@
       width: 250px;
       &__wrapper {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
         column-gap: 32px;
-
-        @include mqM() {
-          * span,
-          p {
-            display: none;
-          }
-        }
       }
     }
 
     &__btns {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       align-items: center;
       column-gap: 16px;
 
@@ -38,10 +31,9 @@
       }
     }
 
-    &__sortBtn {
+    &__sort {
       display: flex;
       column-gap: 8px;
-      padding: 8px 16px;
 
       & * {
         fill: $color-white;

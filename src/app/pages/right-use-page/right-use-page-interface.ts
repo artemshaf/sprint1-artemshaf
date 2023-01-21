@@ -1,3 +1,3 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export interface IRightUsePageInterface extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+export type IRightUsePageInterface = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

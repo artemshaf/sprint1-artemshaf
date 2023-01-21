@@ -9,9 +9,10 @@
     "component": "npx generate-react-cli component",
     "eject": "react-scripts eject",
     "cy": "cypress open",
-    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx.",
     "e2e": "start-server-and-test start http-get://localhost:3000 cy",
-    "e2e:run": "start-test 3000 'cypress run'"
+    "e2e:run": "start-test 3000 'cypress run'",
+    "lint": "eslint ./src -c .eslintrc.js --ext .jsx,.js,.ts,.tsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",

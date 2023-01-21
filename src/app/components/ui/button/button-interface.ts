@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+
 import { IconName } from '../icon/icon-interface';
 
 type ButtonColorType = 'primary' | 'secondary' | 'text';

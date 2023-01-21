@@ -1,3 +1,3 @@
 import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
 
-export interface ILogoInterface extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {}
+export type ILogoInterface = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;

@@ -1,6 +1,8 @@
 @import '../../../../styles/mixins.scss';
 
 .item {
+  outline: none;
+  border: none;
   padding: 10px;
   background-color: $color-white;
   box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
@@ -8,7 +10,7 @@
   border-radius: 12px;
 
   &:hover {
-    transform: scale(1.02) translate3d(3px, 3px, 3px);
+    // transform: scale(1.02) translate3d(3px, 3px, 3px);
   }
 
   transition: $transition-m all ease-in-out;
@@ -19,7 +21,7 @@
     column-gap: 20px;
 
     @include mqS() {
-      grid-template-columns: 70px auto;
+      grid-template-columns: 90px auto;
       column-gap: 10px;
     }
 
@@ -85,10 +87,9 @@
     flex-direction: column;
 
     .img {
-      width: 100%;
-
-      margin-bottom: 15px;
-      cursor: pointer;
+      display: block;
+      width: 75%;
+      margin: 0 auto 15px auto;
     }
 
     .rating {
@@ -110,6 +111,7 @@
       font-size: 12px;
       line-height: 18px;
       padding: 11px 23px;
+      width: 100%;
     }
   }
 }

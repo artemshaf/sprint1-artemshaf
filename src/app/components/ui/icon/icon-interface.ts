@@ -24,6 +24,7 @@ import { ReactComponent as Instagram } from './icons/instagram.svg';
 import { ReactComponent as Left } from './icons/left.svg';
 import { ReactComponent as Linkedin } from './icons/llinkedin.svg';
 import { ReactComponent as Loader } from './icons/loader.svg';
+import { ReactComponent as Logo } from './icons/logo.svg';
 import { ReactComponent as Menu } from './icons/menu.svg';
 import { ReactComponent as More } from './icons/more.svg';
 import { ReactComponent as Outline } from './icons/outline.svg';
@@ -35,15 +36,14 @@ import { ReactComponent as Share } from './icons/share.svg';
 import { ReactComponent as SortAsc } from './icons/sort-ascending.svg';
 import { ReactComponent as SortDesc } from './icons/sort-descending.svg';
 import { ReactComponent as SquareFour } from './icons/square-four.svg';
+import { ReactComponent as StarEmpty } from './icons/star-empty.svg';
+import { ReactComponent as StarFull } from './icons/star-full.svg';
 import { ReactComponent as ToastNegative } from './icons/toast-negative.svg';
 import { ReactComponent as ToastPositive } from './icons/toast-positive.svg';
 import { ReactComponent as Up } from './icons/up.svg';
 import { ReactComponent as Vk } from './icons/vk.svg';
 import { ReactComponent as Warning } from './icons/warning.svg';
 import { ReactComponent as WarningCircle } from './icons/warning-circle.svg';
-import { ReactComponent as Logo } from './icons/logo.svg';
-import { ReactComponent as StarFull } from './icons/star-full.svg';
-import { ReactComponent as StarEmpty } from './icons/star-empty.svg';
 
 export const importedIcons = {
   StarFull,

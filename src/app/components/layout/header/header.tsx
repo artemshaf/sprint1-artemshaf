@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import classNames from 'classnames';
+
 import { useMatchMedia } from '../../../hooks';
 import { Logo, UserBlock } from '../../plain';
 import { Icon, Typography } from '../../ui';

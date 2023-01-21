@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 import { BookItem } from './book-item';
 import { IBookListInterface } from './book-list-interface';
@@ -18,7 +18,7 @@ export const BookList = ({
 
   return (
     <ul className={classNames(styles.list, styles[`list_${variantDisplay}`], className)} {...props}>
-      {books && books.map((item) => <BookItem variantDisplay={variantDisplay} item={item} data-test-id='card' />)}
+      {books && books.map((item) => <BookItem variantDisplay={variantDisplay} item={item} />)}
     </ul>
   );
 };

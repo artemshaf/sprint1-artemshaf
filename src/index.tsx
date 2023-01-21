@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { AppWithLayout } from './app/app';
@@ -9,6 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <React.StrictMode>
-    <AppWithLayout />
+    <Suspense fallback={<div>Loading...</div>}>
+      <AppWithLayout />
+    </Suspense>
   </React.StrictMode>
 );
