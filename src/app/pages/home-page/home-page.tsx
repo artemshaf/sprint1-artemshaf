@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useState } from 'react';
 import classNames from 'classnames';
 import { useDocumentTitle } from 'usehooks-ts';
@@ -27,7 +26,7 @@ export const HomePage = ({ className, ...props }: IHomePageInterface) => {
             {isM ? (
               <Button icon='SortAsc' color='secondary' className={styles.content__top__sort} />
             ) : (
-              <Button size='s' color='secondary' className={styles.content__top__sort}>
+              <Button style={{ padding: '12px' }} color='secondary' className={styles.content__top__sort}>
                 <Icon icon='SortAsc' />
                 {/* <Typography variant='span'>По рейтингу</Typography> */}
               </Button>

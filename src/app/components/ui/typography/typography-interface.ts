@@ -1,13 +1,9 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
+type AllowTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'span' | 'p';
+export const AllowTagsArray = ['h1', 'h2', 'h3', 'h4', 'h5', 'span', 'p'];
 type TypographyVariant =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'span'
-  | 'p'
+  | AllowTags
   | 'subtitle-l'
   | 'subtitle-s'
   | 'body-l'

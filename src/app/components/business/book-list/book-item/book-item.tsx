@@ -31,10 +31,12 @@ const Item = ({ variantDisplay = 'list', item, className, ...props }: IBookItemI
         </Link>
         <div className={classNames(styles[`item_${variantDisplay}__info__wrapper`])}>
           <div className={classNames(styles[`item_${variantDisplay}__info__descr`])}>
-            <Typography className={classNames(styles.name)}>
+            <Typography variant='subtitle-s' className={classNames(styles.name)}>
               Грокаем алгоритмы. Иллюстрированное пособие для програ...
             </Typography>
-            <Typography className={classNames(styles.author)}>Адитья Бхаргава, 2019</Typography>
+            <Typography variant='body-s' className={classNames(styles.author)}>
+              Адитья Бхаргава, 2019
+            </Typography>
           </div>
           <div className={classNames(styles[`item_${variantDisplay}__btn__wrapper`])}>
             <Rating isChanged={false} rate={3} className={classNames(styles.rating)} />
@@ -66,10 +68,12 @@ const Item = ({ variantDisplay = 'list', item, className, ...props }: IBookItemI
           {/* <Typography className={classNames(styles.rating)} variant='p'>
             ещё нет оценок
           </Typography> */}
-          <Typography className={classNames(styles.name)}>
+          <Typography variant='subtitle-s' className={classNames(styles.name)}>
             Грокаем алгоритмы. Иллюстрированное пособие для програ...
           </Typography>
-          <Typography className={classNames(styles.author)}>Адитья Бхаргава, 2019</Typography>
+          <Typography variant='body-s' className={classNames(styles.author)}>
+            Адитья Бхаргава, 2019
+          </Typography>
           <Button size='s' className={classNames(styles.btn)}>
             Забронировать
           </Button>

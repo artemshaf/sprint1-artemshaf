@@ -28,6 +28,7 @@ module.exports = {
     'no-irregular-whitespace': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'no-console': 'off',
+    'simple-import-sort/imports': 'off',
   },
   ignorePatterns: ['coverage', 'cypress.config.ts'],
 };

@@ -2,12 +2,14 @@
 import { createElement } from 'react';
 import classNames from 'classnames';
 
-import { ITypographyInterface } from './typography-interface';
+import { ITypographyInterface, AllowTagsArray } from './typography-interface';
 
 import styles from './typography.module.scss';
 
 export const Typography = ({ children, variant = 'p', className, ...props }: ITypographyInterface) => {
   const rightStyles = styles[`${variant}`];
 
-  return createElement(variant, { ...props, className: classNames(className, rightStyles) }, children);
+  const tag = AllowTagsArray.includes(variant) ? variant : 'p';
+
+  return createElement(tag, { ...props, className: classNames(className, rightStyles) }, children);
 };

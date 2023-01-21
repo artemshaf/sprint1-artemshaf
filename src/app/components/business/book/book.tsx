@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { getFullRussianDate } from '../../../helpers';
 import { Button, Divider, Rating, Typography, UserAvatar } from '../..';
 
-import AvatarDefault from './images/default.png';
+import AvatarDefault from './images/algoritms.png';
 import { IBookInterface } from './book-interface';
 
 import styles from './book.module.scss';
