@@ -5,7 +5,7 @@ declare module '*.svg' {
   export = content;
 }
 
-interface StaticImageData {
+export interface StaticImageData {
   src: string;
   height: number;
   width: number;

@@ -1,0 +1,31 @@
+@import '../../../styles/mixins.scss';
+
+.breadcrumbs {
+  display: block;
+  background-color: $color-grey5;
+  padding: 20px 0;
+
+  &__item {
+    display: inline;
+
+    cursor: pointer;
+    & a {
+      color: var(--dark);
+      font-size: var(--font-lg);
+    }
+    text-transform: capitalize;
+    &:first-child::before {
+      content: '';
+      margin: 0;
+    }
+
+    &::before {
+      font-size: var(--font-sm);
+      vertical-align: middle;
+      content: '/';
+      margin-left: 12px;
+      margin-right: 12px;
+      text-decoration: none;
+    }
+  }
+}

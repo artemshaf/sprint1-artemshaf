@@ -1,0 +1,70 @@
+@import-normalize;
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: $color-white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#root {
+  min-height: 100%;
+}
+
+#container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: $color-grey20;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-grey70;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color-dark;
+}
+
+::-webkit-scrollbar-button:vertical:start:decrement {
+  background: none;
+  display: none;
+}
+
+::-webkit-scrollbar-button:vertical:end:increment {
+  background: none;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  background: none;
+  display: none;
+}
+
+::-webkit-scrollbar-button:horizontal:end:increment {
+  background: none;
+  display: none;
+}

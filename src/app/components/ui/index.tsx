@@ -4,3 +4,7 @@ export * from './icon';
 export * from './text-field';
 export * from './toast';
 export * from './typography';
+export * from './button';
+export * from './user-avatar';
+export * from './input';
+export * from './divider';

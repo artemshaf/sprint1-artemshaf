@@ -41,8 +41,14 @@ import { ReactComponent as Up } from './icons/up.svg';
 import { ReactComponent as Vk } from './icons/vk.svg';
 import { ReactComponent as Warning } from './icons/warning.svg';
 import { ReactComponent as WarningCircle } from './icons/warning-circle.svg';
+import { ReactComponent as Logo } from './icons/logo.svg';
+import { ReactComponent as StarFull } from './icons/star-full.svg';
+import { ReactComponent as StarEmpty } from './icons/star-empty.svg';
 
 export const importedIcons = {
+  StarFull,
+  StarEmpty,
+  Logo,
   AddUser,
   ArrowLeft,
   ArrowRight,
@@ -86,7 +92,7 @@ export const importedIcons = {
   WarningCircle,
 };
 
-type IconName = keyof typeof importedIcons;
+export type IconName = keyof typeof importedIcons;
 
 export interface IIconInterface extends React.SVGProps<SVGSVGElement> {
   icon: IconName;

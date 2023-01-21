@@ -9,7 +9,7 @@ export const TemplateName = ({ className, ...props }: ITemplateNameInterface) =>
   console.log(styles);
 
   return (
-    <div className={styles.templateName} {...props}>
+    <div className={classNames(styles.templateName, className)} {...props}>
       TemplateName Component
     </div>
   );

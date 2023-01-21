@@ -1,0 +1,112 @@
+@import '../../../styles/mixins.scss';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline-color: #f8b600;
+  outline-width: 3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  transition: $transition-m all ease-in-out;
+
+  & {
+    font-size: 16px;
+    line-height: 150%;
+  }
+
+  & svg,
+  path {
+    fill: $color-dark;
+  }
+}
+
+.primary {
+  color: $color-white;
+  background: linear-gradient(233.73deg, #f83600 -16.08%, #f9d423 327.37%);
+  border: none;
+
+  &:hover {
+    background-color: #ff740f;
+    & * {
+      fill: $color-white;
+    }
+  }
+  &:active {
+    background-color: $bg-btn-pressed;
+    box-shadow: $btn-shadow;
+  }
+  &:disabled {
+    background-color: $color-grey10;
+  }
+}
+
+.secondary {
+  color: $color-dark;
+  background-color: $color-white;
+  border: 1px solid $color-grey10;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+
+  & svg,
+  path {
+    fill: $color-dark;
+  }
+  &:hover {
+    background-color: #ff740f;
+  }
+  &:active {
+    background-color: $bg-btn-pressed;
+    box-shadow: $btn-shadow;
+  }
+  &:disabled {
+    color: $color-grey40;
+    background-color: $color-grey20;
+  }
+}
+
+.text {
+  color: $color-white;
+  background: none;
+  border: none;
+  outline: none;
+
+  &:hover {
+    color: $color-dark;
+    color: $color-dark30;
+  }
+  &:active {
+    color: $btn-color-pressed;
+    color: $btn-color-pressed;
+  }
+  &:disabled {
+    color: $color-dark;
+    color: $color-dark;
+  }
+}
+
+.s {
+  padding: 11px 30px;
+  border-radius: $border-l;
+}
+
+.l {
+  padding: 14px 40px;
+  border-radius: $border-m;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: $transition-m all ease-in-out;
+
+  & * {
+    fill: white;
+  }
+}

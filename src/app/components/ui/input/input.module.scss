@@ -1,0 +1,64 @@
+@import '../../../styles/mixins.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  column-gap: 10px;
+  background-color: $color-white;
+  border-radius: 600px;
+  padding: 10px 16px;
+  box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18),
+    0px 1px 5px rgba(191, 196, 201, 0.24);
+
+  transition: $transition-m all ease-in-out;
+
+  * svg {
+    cursor: pointer;
+    transition: $transition-m all ease-in-out;
+  }
+
+  & ~ input + svg {
+    fill: $btn-color-pressed;
+  }
+
+  & input {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    transition: $transition-m all ease-in-out;
+
+    &::placeholder {
+      color: $color-grey40;
+    }
+    &:focus {
+      color: $btn-color-pressed;
+      font-weight: 500;
+    }
+  }
+}
+
+.icons {
+  &_search {
+    & svg,
+    path {
+      fill: $color-accent;
+    }
+    padding: 0;
+    transition: $transition-m all ease-in-out;
+
+    background: transparent;
+  }
+  &_close {
+    & svg,
+    path {
+      fill: $color-accent;
+    }
+    padding: 0;
+    transition: $transition-m all ease-in-out;
+
+    background: transparent;
+  }
+}

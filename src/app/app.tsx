@@ -1,7 +1,7 @@
-import { HomePage } from './pages/home-page';
+// import { AppRouter } from './components/business';
+import { AppRouter } from './components';
+import { withLayout } from './components/layout';
 
-export const App = () => (
-  <div>
-    <HomePage />
-  </div>
-);
+const App = () => <AppRouter />;
+
+export const AppWithLayout = withLayout(App);
