@@ -1,65 +1,46 @@
 @import '../../../styles/mixins.scss';
 
-.wrapper {
+.menu {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  row-gap: 15px;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 15px;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-.list__title {
-  padding: 8px 0;
-  font-weight: bold;
-
-  &__wrapper {
+  row-gap: 30px;
+  ul {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+    flex-direction: column;
+    & > li > ul {
+      display: flex;
 
-  &_main {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
+      & > li {
+        display: flex;
+        column-gap: 8px;
 
-    & * {
-      fill: $btn-color-pressed;
+        * > p,
+        span {
+          color: $color-grey40;
+        }
+      }
     }
+    color: $color-dark;
   }
-}
 
-.list__item {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 8px;
-  cursor: pointer;
-}
+  & span {
+    cursor: pointer;
+  }
 
-.active {
-  & >,
-  & {
-    color: $color-accent;
+  & > ul > li > a > p {
+    font-size: 18px;
     font-weight: bold;
-    border-bottom: 1px solid $btn-color-pressed;
   }
-  & svg,
-  & path {
+}
+
+.item_choosed {
+  color: $color-accent;
+  display: block;
+  * svg,
+  path {
     fill: $color-accent;
   }
-
-  &_item {
-    color: $color-accent;
-    font-weight: bold;
+  * > p {
+    border-bottom: 1px solid $color-accent;
   }
 }

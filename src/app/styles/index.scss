@@ -32,6 +32,17 @@ a {
   justify-content: space-between;
 }
 
+#loader {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent url('./loader.gif') no-repeat center;
+  backdrop-filter: blur(15px);
+  z-index: 999;
+}
+
 main {
   flex: 1 1 auto;
 }

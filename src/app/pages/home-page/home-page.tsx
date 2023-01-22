@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useDocumentTitle } from 'usehooks-ts';
 
-import { BookList, Button, Icon, Input, Typography, WithMenu } from '../../components';
+import { BookList, Button, Icon, Input, Loader, Typography, WithMenu } from '../../components';
 
 import { IHomePageInterface } from './home-page-interface';
 

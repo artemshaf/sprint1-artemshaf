@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     'no-console': 'off',
     'simple-import-sort/imports': 'off',
+    'arrow-body-style': 'off',
   },
   ignorePatterns: ['coverage', 'cypress.config.ts'],
 };

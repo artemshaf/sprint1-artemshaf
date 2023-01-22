@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-
-import { BookItem } from './book-item';
+import { motion } from 'framer-motion';
 import { IBookListInterface } from './book-list-interface';
 
 import styles from './book-list.module.scss';
+import { BookItem } from './book-item';
 
 type VariantDisplay = 'list' | 'tile';
 
@@ -14,11 +14,9 @@ export const BookList = ({
   className,
   ...props
 }: IBookListInterface) => {
-  console.log('book list');
-
   return (
-    <ul className={classNames(styles.list, styles[`list_${variantDisplay}`], className)} {...props}>
+    <motion.ul layout='size' className={classNames(styles.list, styles[`list_${variantDisplay}`], className)}>
       {books && books.map((item) => <BookItem variantDisplay={variantDisplay} item={item} />)}
-    </ul>
+    </motion.ul>
   );
 };

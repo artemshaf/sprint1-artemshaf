@@ -1,7 +1,6 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import { INestedMenu } from '../../../data';
 
-type MunuListChildren = string[];
-
-export interface IMenuListInterface extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
-  items?: MunuListChildren;
+export interface IMenuListInterface extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
+  items?: INestedMenu;
 }

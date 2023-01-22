@@ -10,7 +10,6 @@ import styles from './offer-page.module.scss';
 
 export const OfferPage = ({ className, ...props }: IOfferPageInterface) => {
   useDocumentTitle('Договор офёрты');
-  console.log(styles);
 
   return (
     <WithMenu className={classNames(styles.offerPage, className)} {...props}>
