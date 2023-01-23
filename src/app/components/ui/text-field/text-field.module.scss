@@ -1,2 +1,53 @@
-.textField {
+@import '../../../styles/mixins.scss';
+
+.label {
+  position: relative;
+  &_disabled {
+    * {
+      border: none;
+      color: $color-grey20;
+    }
+  }
+}
+
+.input {
+  padding: 26px 12px 12px 12px;
+  color: $color-dark;
+  background-color: $color-grey5;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  border-bottom: 1px solid $color-grey20;
+
+  &_active {
+    border-color: $color-grey40;
+  }
+  &_error {
+    border-color: $color-accent;
+  }
+}
+
+.placeholder {
+  position: absolute;
+  top: 26px;
+  left: 12px;
+  font-size: 14px;
+
+  transition: $transition-m all;
+
+  color: $color-dark;
+
+  &_active {
+    font-size: 12px;
+
+    top: 3px;
+    color: $color-grey40;
+  }
+}
+
+.assistive {
+  margin-left: 12px;
+  &_error {
+    color: $color-accent;
+  }
 }

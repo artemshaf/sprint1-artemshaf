@@ -1,3 +1,7 @@
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, InputHTMLAttributes } from 'react';
 
-export type ITextFieldInterface = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+export interface ITextFieldInterface
+  extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  error?: boolean;
+  assistive?: string;
+}

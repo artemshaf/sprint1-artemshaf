@@ -5,6 +5,7 @@ import { IBookListInterface } from './book-list-interface';
 
 import styles from './book-list.module.scss';
 import { BookItem } from './book-item';
+import { getKey } from '../../../helpers';
 
 type VariantDisplay = 'list' | 'tile';
 
@@ -16,7 +17,7 @@ export const BookList = ({
 }: IBookListInterface) => {
   return (
     <motion.ul layout='size' className={classNames(styles.list, styles[`list_${variantDisplay}`], className)}>
-      {books && books.map((item) => <BookItem variantDisplay={variantDisplay} item={item} />)}
+      {books && books.map((item) => <BookItem key={getKey()} variantDisplay={variantDisplay} item={item} />)}
     </motion.ul>
   );
 };

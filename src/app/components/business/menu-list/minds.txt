@@ -1,0 +1,8 @@
+{
+  text,
+  route,
+  items
+}
+
+
+/ + route === pathname

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useDocumentTitle } from 'usehooks-ts';
 
-import { NestedList, WithMenu } from '../../components';
+import { Calendar, NestedList, WithMenu } from '../../components';
 import { offerPageData } from '../../data';
 
 import { IOfferPageInterface } from './offer-page-interface';

@@ -1,2 +1,42 @@
+@import '../../../styles/mixins.scss';
+
 .toast {
+  display: grid;
+
+  border-width: 2px;
+  border: 2px solid $color-positive;
+
+  grid-template-columns: 32px auto 24px;
+  padding: 24px 32px;
+
+  @include mqM() {
+    padding: 16px 24px;
+    grid-template-columns: 24px auto 16px;
+  }
+
+  @include mqS {
+    padding: 12px 16px;
+  }
+}
+
+.error {
+  border-color: $bg-negative;
+  background-color: $color-negative;
+
+  & svg {
+    fill: $color-negative;
+  }
+}
+
+.success {
+  border-color: $bg-positive;
+  background-color: $color-positive;
+
+  & svg {
+    fill: $color-positive;
+  }
+}
+
+.close {
+  fill: $color-dark;
 }

@@ -1,98 +1,104 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import { Link, useLocation, useParams } from 'react-router-dom';
-import classNames from 'classnames';
+import cn from 'classnames';
 
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion, Variants } from 'framer-motion';
 import { ComponentType, useState } from 'react';
-import { INestedMenuItem, menuItems } from '../../../data';
-import { Typography } from '../../ui';
+import { menuItems } from '../../../data';
+import { Icon, Typography } from '../../ui';
 
-import { IMenuListInterface } from './menu-list-interface';
+import { IMenuListInterface, MenuItem, MenuListItem } from './menu-list-interface';
 
 import styles from './menu-list.module.scss';
 import { getKey } from '../../../helpers';
 
 const mockItems = menuItems;
 
-export type MenuListItem = {
-  items: INestedMenuItem[];
+const variants: Variants = {
+  initial: {},
+  animate: { transition: { when: 'beforeChildren', staggerChildren: 0.5, duration: 0 } },
+  exit: {},
 };
 
-export type MenuItem = {
-  item: INestedMenuItem;
+const variantsItem: Variants = {
+  initial: {
+    x: -20,
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    x: 0,
+  },
+  exit: {
+    x: -20,
+    opacity: 0,
+  },
 };
 
-const compareFirstSplited = (str1: string, str2: string, sep = '/') => str1.split(sep)[1] === str2.split(sep)[1];
+const isItemOpen = (route: string, pathname: string, pos = 1) => pathname.split('/')[pos] === route.split('/')[pos];
 
 const ListItem: React.FC<MenuItem> = ({ item }) => {
   const { pathname } = useLocation();
-  const shouldReduceMotion = useReducedMotion();
-  const [isOpen, setIsOpen] = useState<boolean>(() => compareFirstSplited(item.route, pathname));
+  const [isOpen, setIsOpen] = useState<boolean>(() => isItemOpen(item.route, pathname));
 
-  const variants = {
-    visible: {
-      marginTop: 16,
-      marginBottom: 16,
-      marginLeft: 20,
-      transition: shouldReduceMotion
-        ? {}
-        : {
-            when: 'beforeChildren',
-            staggerChildren: 0.08,
-          },
-    },
-    hidden: { marginTop: 0, marginBottom: 0, marginLeft: 0 },
-  };
-
-  const variantsItem = {
-    visible: {
-      opacity: 1,
-      height: '39px',
-      x: 0,
-    },
-    hidden: { opacity: 0, height: 0, x: -20 },
-  };
+  console.log(pathname);
 
   return (
-    <motion.li
-      className={classNames({
-        [styles.item_choosed]: pathname.split('/')[1] === item.route.split('/')[1],
-      })}
-      id={pathname.includes(item.route) ? 'item_choosed' : ''}
-      key={getKey()}
-    >
+    <motion.li role='listitem'>
       {item.items ? (
         <>
-          <Link
-            to={item.route}
-            onClick={() => {
-              console.log('click');
-              setIsOpen((prev) => !prev);
-            }}
+          <Typography
+            onClick={() => setIsOpen((prev) => !prev)}
+            variant='p'
+            className={cn({
+              [styles.choosed__title]: isOpen,
+            })}
           >
-            <Typography variant='p'>{item.text}</Typography>
-          </Link>
-          <motion.ul
-            initial={compareFirstSplited(item.route, pathname) ? 'visible' : 'hidden'}
-            animate={compareFirstSplited(item.route, pathname) ? 'visible' : 'hidden'}
-            variants={variants}
-          >
-            {item.items.map((child) => (
-              <motion.li
-                className={classNames({
-                  [styles.item_choosed]: pathname === child.route,
-                })}
-                initial={compareFirstSplited(child.route, pathname) ? 'visible' : 'hidden'}
-                animate={compareFirstSplited(child.route, pathname) ? 'visible' : 'hidden'}
-                variants={variantsItem}
+            {item.text}
+            {isOpen ? <Icon icon='Down' /> : <Icon icon='Up' />}
+          </Typography>
+          <AnimatePresence initial={!isOpen}>
+            {isOpen && (
+              <motion.ul
+                role='list'
+                initial={isOpen ? 'animate' : 'initial'}
+                animate={isOpen ? 'animate' : 'initial'}
+                exit='exit'
+                layout={true}
+                variants={variants}
               >
-                <Link to={child.route}>{child.text}</Link>
-              </motion.li>
-            ))}
-          </motion.ul>
+                {item.items.map(
+                  (child) =>
+                    !child.items && (
+                      <motion.li
+                        role='listitem'
+                        layout={true}
+                        initial='initial'
+                        animate='animate'
+                        variants={variantsItem}
+                        key={getKey()}
+                        className={cn({
+                          [styles.choosed__item]: pathname === child.route,
+                        })}
+                      >
+                        <Link to={child.route}>{child.text}</Link>
+                      </motion.li>
+                    )
+                )}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </>
       ) : (
-        <Link to={item.route}>
+        <Link
+          to={item.route}
+          onClick={() => {
+            console.log('click');
+            setIsOpen((prev) => !prev);
+          }}
+          className={cn({
+            [styles.choosed]: pathname === item.route,
+          })}
+        >
           <Typography variant='p'>{item.text}</Typography>
         </Link>
       )}
@@ -102,19 +108,17 @@ const ListItem: React.FC<MenuItem> = ({ item }) => {
 
 const List: ComponentType<MenuListItem> = ({ items }) => {
   return (
-    <motion.ul key={getKey()} className={styles.menu}>
+    <motion.ul role='list' key={getKey()} className={styles.menu}>
       {items.map((item) => (
-        <ListItem item={item} />
+        <ListItem item={item} key={getKey()} />
       ))}
     </motion.ul>
   );
 };
 
 export const MenuList = ({ items = mockItems, className, ...props }: IMenuListInterface) => {
-  const { pathname } = useLocation();
-
   return (
-    <nav className={classNames(styles.menu, className)} {...props}>
+    <nav role='navigation' className={cn(styles.menu, className)} {...props}>
       <List items={items} />
     </nav>
   );

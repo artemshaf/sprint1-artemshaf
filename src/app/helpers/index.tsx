@@ -1,4 +1,5 @@
 export * from './pretty-offer-list';
+export * from './calendar';
 
 export const getKey = (count = 2): string => {
   let result = '';

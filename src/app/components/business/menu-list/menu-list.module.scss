@@ -9,15 +9,16 @@
     flex-direction: column;
     & > li > ul {
       display: flex;
+      gap: 16px;
+      margin-left: 20px;
 
       & > li {
         display: flex;
         column-gap: 8px;
+      }
 
-        * > p,
-        span {
-          color: $color-grey40;
-        }
+      & li:first-child {
+        margin-top: 20px;
       }
     }
     color: $color-dark;
@@ -27,20 +28,33 @@
     cursor: pointer;
   }
 
-  & > ul > li > a > p {
-    font-size: 18px;
-    font-weight: bold;
+  & > ul > li {
+    & > p,
+    & > a > p {
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      transition: $transition-m all;
+    }
   }
 }
 
-.item_choosed {
+.choosed {
   color: $color-accent;
-  display: block;
-  * svg,
-  path {
-    fill: $color-accent;
+  font-weight: bold;
+
+  &__title {
+    color: $color-accent;
+    border-bottom: 3px solid $color-accent;
+
+    * svg,
+    path {
+      fill: $color-accent;
+    }
   }
-  * > p {
-    border-bottom: 1px solid $color-accent;
+
+  &__item {
+    color: $color-accent;
+    font-weight: bold;
   }
 }

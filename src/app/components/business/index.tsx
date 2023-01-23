@@ -5,3 +5,4 @@ export * from './review-list';
 export * from './book';
 export * from './rating';
 export * from './breadcrumbs';
+export * from './calendar';

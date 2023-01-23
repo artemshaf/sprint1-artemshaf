@@ -1,10 +1,10 @@
 import { HOME_PAGE, OFFER_PAGE, RIGHT_USE_PAGE } from '../utils';
 
-export interface INestedMenuItem {
+export type INestedMenuItem = {
   text: string;
   route: string;
   items?: INestedMenuItem[];
-}
+};
 
 export type INestedMenu = INestedMenuItem[];
 

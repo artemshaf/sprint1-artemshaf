@@ -1,0 +1,12 @@
+@import '../../../styles/mixins.scss';
+
+.calendar {
+  padding: 16px;
+  background-color: $color-white;
+  padding-bottom: 0;
+
+  thead {
+    color: $btn-color-pressed;
+    font-weight: 300;
+  }
+}

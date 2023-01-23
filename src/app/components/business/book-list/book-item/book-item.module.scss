@@ -11,9 +11,11 @@
 
   &:hover {
     transform: scale(1.02) translate3d(3px, 3px, 3px);
-  }
 
-  max-height: 470px;
+    @include mqM() {
+      transform: none;
+    }
+  }
 
   transition: $transition-m all ease-in-out;
 
